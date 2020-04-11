@@ -1,5 +1,5 @@
 .container{
-    background-image: url("https://mdbootstrap.com/img/Photos/Others/img%20%2848%29.jpg");
+    background-image: url("https://static.voices.com/wp-content/uploads/voice-behind-lion-king.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     padding: 12%;
@@ -11,7 +11,7 @@
   .user{
     margin-bottom: 10%;
     padding: 2.5%;
-    background: aqua;
+    background: crimson;
     font-size: 14px;
     color:white;
     align-items: center;
