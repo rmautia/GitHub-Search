@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { Github } from '../github-class/github';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  github:Github;
 
-  ngOnInit(): void {
+  constructor(private http:HttpClient) { }
+
+  ngOnInit() {
+    interface ApiResponse{
+
+    }
   }
 
 }
