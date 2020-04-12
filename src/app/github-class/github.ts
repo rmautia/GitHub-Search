@@ -1,7 +1,7 @@
 export class Github {
     constructor(
         public user: any,
-        public repos: any,
+        public repo: any,
         public userName: string,
     ) {}
 }
