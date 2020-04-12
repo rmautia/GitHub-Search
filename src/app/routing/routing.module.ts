@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: '', redirectTo:"/landing", pathMatch:"full"},
 ];
 
+
 @NgModule({
   imports: [
     CommonModule,
