@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment'
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+
 
 
 @Injectable({
@@ -26,4 +32,20 @@ export class GitService {
             + '&client_secret=' + this.clientSecret)
             .map(res => res.json())
             .catch(this.handleError);
+    }
+    getRepo(); {
+       if (this.userName) {
+          return this._http.get('http://api.github.com/users/' + this.userName
+               + '/repos?client_id=' + this.clientId
+               + '&client_secret=' + this.clientSecret)
+               .map(res => res.json())
+               .catch(this.handleError);
+              }
+      
+          }
+    updateUser(userName: string) {
+      this.userName = userName;
+        }
+    }
+  }
 }

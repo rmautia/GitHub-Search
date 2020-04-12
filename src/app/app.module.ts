@@ -9,6 +9,7 @@ import { RepohomeComponent } from './repohome/repohome.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LandingComponent } from './landing/landing.component';
 import { HomeFormComponent } from './home-form/home-form.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomeFormComponent } from './home-form/home-form.component';
     RepohomeComponent,
     NavbarComponent,
     LandingComponent,
-    HomeFormComponent
+    HomeFormComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

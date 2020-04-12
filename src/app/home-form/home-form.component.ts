@@ -31,7 +31,7 @@ export class HomeFormComponent implements OnInit {
   getUserInformation() {
     if (this.github.userName && this.github.userName.length > 0) {
 
-      this._gitService.getuser().subscribe(user => {
+      this._gitService.getUser().subscribe(user => {
         this.github.user = user;
         this.userUpdated.emit(this.github)
       },
@@ -44,7 +44,7 @@ export class HomeFormComponent implements OnInit {
       );
 
 
-      this._gitService.getrepo().subscribe(repo => {
+      this._gitService.getRepo().subscribe(repo => {
         //console.log(repo);
         this.github.repo = repo
         this.userUpdated.emit(this.github);
