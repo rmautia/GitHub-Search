@@ -3,13 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 
-
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -30,24 +23,21 @@ export class GitService {
     if (this.userName) {
         return this._http.get('http://api.github.com/users/' + this.userName
             + '?client_id=' + this.clientId
-            + '&client_secret=' + this.clientSecret)
-            .map(res => res.json())
-            .catch(this.handleError);
-    }
+            + '&client_secret=' + this.clientSecret);
+            
+      }
   }
     getRepo() {
        if (this.userName) {
           return this._http.get('http://api.github.com/users/' + this.userName
                + '/repos?client_id=' + this.clientId
-               + '&client_secret=' + this.clientSecret)
-               .map(res => res.json())
-               .catch(this.handleError);
-              }
-      
+               + '&client_secret=' + this.clientSecret);
           }
+      
+    }
     updateUser(userName: string) {
       this.userName = userName;
-        }
     }
+}
   
 

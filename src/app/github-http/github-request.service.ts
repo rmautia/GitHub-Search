@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 import { Github } from '../github-class/github'
-import { resolve } from 'dns';
+
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,7 @@ export class GithubRequestService {
       this.github.userName = response.userName
 
 
-      resolve()
+    resolve()
     },
     error=>{
       this.github.user = "user name example rmautia"

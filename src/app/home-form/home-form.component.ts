@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { GitService } from '../git-service/git.service';
-import { GithubRequestService } from '../github-http/github-request.service'
-import 'rxjs/add/operator/map';
+import { GithubRequestService } from '../github-http/github-request.service';
 
 import { Github } from '../github-class/github';
 import { error } from '@angular/compiler/src/util';
@@ -27,6 +26,15 @@ export class HomeFormComponent implements OnInit {
       this.getUserInformation();
     }
   }
+  searchUser() {
+    if (this.github.userName && this.github.userName.length > 0) {
+        this._gitService.updateUser(this.github.userName);
+        this.getUserInformation();
+    } else {
+        this.github.user = false;
+    }
+}
+
 
   getUserInformation() {
     if (this.github.userName && this.github.userName.length > 0) {
