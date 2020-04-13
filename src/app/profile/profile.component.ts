@@ -6,7 +6,6 @@ import { Github } from '../github-class/github';
 import { GithubRequestService } from '../github-http/github-request.service'
 
 @Component({
-  moduleId: module.id,
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']

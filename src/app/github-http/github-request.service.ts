@@ -21,8 +21,8 @@ export class GithubRequestService {
     this.clientId = '60b9f23dedffbdfc476c';
     this.clientSecret = '922c8f6ccfa1661f8838da56c0a3d7208480ce60';
     this.getUserUrl = 'https://api.github.com/users/[userName]?client_id=[clientId]&client_secret=[clientSecret]';
-    this.getRepoUrl = 'https://api.github.com/users/[userName]/repos?client_id=[clientId]&client_secret=[clientSecret]';
-    this.getReadmeUrl = 'https://api.github.com/repos/[userName]/[repo]/readme?client_id=[clientId]&client_secret=[clientSecret]';
+    this.getRepoUrl = 'https://api.github.com/users/[userName]/repo?client_id=[clientId]&client_secret=[clientSecret]';
+    this.getReadmeUrl = 'https://api.github.com/repo/[userName]/[repo]/readme?client_id=[clientId]&client_secret=[clientSecret]';
 
 
   }
@@ -32,8 +32,8 @@ export class GithubRequestService {
       return this._http.get(this.getUserUrl.replace('[userName]', this.userName)
         .replace('[clientId]', this.clientId)
         .replace('[clientSecret]', this.clientSecret))
-        .map(res => res.json())
-        .catch(this.handleError);          
+       // .map(res => res.json())
+        //.catch(this.handleError)        
       }
   }
   getRepo(userName) {
@@ -42,8 +42,8 @@ export class GithubRequestService {
         return this._http.get(this.getRepoUrl.replace('[userName]', this.userName)
         .replace('[clientId]', this.clientId)
         .replace('[clientSecret]', this.clientSecret))
-        .map(res => res.json())
-        .catch(this.handleError);
+        //.map(res => res.json())
+        //.catch(this.handleError);
           }
       
     }
@@ -54,8 +54,8 @@ export class GithubRequestService {
               .replace('[clientId]', this.clientId)
               .replace('[clientSecret]', this.clientSecret)
               .replace('[repo]', repoName))
-              .map(res => res.json())
-              .catch(this.handleError);
+             // .map(res => res.json())
+              //.catch(this.handleError);
       }
   }
     updateUser(userName: string) {

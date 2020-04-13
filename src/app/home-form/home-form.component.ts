@@ -2,12 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { GithubRequestService } from '../github-http/github-request.service';
 
-import { Github } from '../github-class/github';
-import { error } from '@angular/compiler/src/util';
-
-
 @Component({
-  moduleId : module.id,
   selector: 'app-home-form',
   templateUrl: './home-form.component.html',
   styleUrls: ['./home-form.component.css']
