@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule} from './routing/routing.module'
+import { MarkdownModule, MarkdownService, MarkedOptions  } from 'ngx-markdown';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RepohomeComponent } from './repohome/repohome.component';
@@ -17,6 +18,8 @@ import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
 
 //services
 import { GithubRequestService } from './github-http/github-request.service';
+import { ReadmeComponent } from './readme/readme.component';
+import { HighlightDirective } from './highlight.directive';
 
 
 
@@ -30,6 +33,8 @@ import { GithubRequestService } from './github-http/github-request.service';
     HomeFormComponent,
     NotFoundComponent,
     ProfileComponent,
+    ReadmeComponent,
+    HighlightDirective,
 
   ],
   imports: [
@@ -39,8 +44,9 @@ import { GithubRequestService } from './github-http/github-request.service';
     HttpClientModule,
     NgProgressModule.forRoot(),
     NgProgressHttpClientModule,
+    MarkdownModule,
   ],
-  providers: [GithubRequestService],
+  providers: [GithubRequestService, MarkdownService, MarkedOptions],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
