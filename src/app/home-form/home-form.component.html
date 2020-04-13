@@ -1,19 +1,9 @@
-<div class="bar">   
-    <div class=" col-md-12" >
-
-            <form id="searchForm">
-                <!-- ngNoForm -->
-
-                <div class="form-group">
-
-                    <div class="input-group">
-                        <input type="text" name="username" class="form-control" placeholder="Enter Github Username..." [(ngModel)]="github.userName"
-                            (keyup)="searchUser()">
-                        <div class="input-group-addon"><i class="fa fa-keyboard-o" aria-hidden="true"></i></div>
-                    </div>
-                </div>
-
-
-            </form>
-    </div>
+<div class="row">
+    <div class="col-md-12">
+        <form class="well">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter Github Username and Press Enter" [(ngModel)]="userName" name="username" (keyup.enter)="searchUser()">   
+             </div>    
+        </form>    
+    </div>    
 </div>

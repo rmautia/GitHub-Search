@@ -12,9 +12,10 @@ import { LandingComponent } from './landing/landing.component';
 import { HomeFormComponent } from './home-form/home-form.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
+import { NgProgressModule } from '@ngx-progressbar/core';
+import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
 
 //services
-import { GitService } from './git-service/git.service';
 import { GithubRequestService } from './github-http/github-request.service';
 
 
@@ -36,8 +37,10 @@ import { GithubRequestService } from './github-http/github-request.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    NgProgressModule.forRoot(),
+    NgProgressHttpClientModule,
   ],
-  providers: [GitService, GithubRequestService],
+  providers: [GithubRequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
