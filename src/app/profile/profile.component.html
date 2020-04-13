@@ -1,92 +1,54 @@
-<div class="m-x-auto"  *ngIf="github.user == false && (github.userName && github.userName.length > 0)">
-    <ng-progress></ng-progress>
-
-    <div class="starter-template text-xs-center">
-        <h5>User Profile not found.</h5>
-        <p class="lead">Enter a different <b>UserName</b>.</p>
-    </div>
-
-</div>
-
-<div class="m-x-auto"  *ngIf="(github.userName.length == 0)">
-
-    <div class="starter-template text-xs-center">
-        <h5>Search any user</h5>
-        <p class="lead">Please enter a <b>username</b>.</p>
-    </div>
-
-</div>
-
-
-<div class="row">
-
-    <div class="col-md-5">
-        <div *ngIf="github && github.user && (github.userName && github.userName.length > 0)">
-
-            <div class="card">
-                <h4 class="card-header">{{github.user.name}}</h4>
-                <div class="card-block">
-                    <div class="row">
-                        <div class="col-xl-4 m-b-1">
-                            <img src="{{github.user.avatar_url}}" class="profile-img img-thumbnail m-b-1" />
-                            <a class="btn btn-sm btn-outline-primary btn-block m-t-1" href="{{github.user.html_url}}" target="_blank">View Profile</a>
-                        </div>
-
-                        <div class="col-xl-8">
-
-
-                            <ul class="list-group">
-                                <li class="list-group-item"><b>Username: </b> {{github.user.login}}</li>
-                                <li class="list-group-item"><b>Location: </b> {{github.user.location}}</li>
-                                <li class="list-group-item"><b>E-Mail: </b> {{github.user.email}}</li>
-                                <li class="list-group-item"><b>Blog Link: </b> {{github.user.blog}}</li>
-                                <li class="list-group-item"><b>Member Since: </b> {{github.user.created_at}}</li>
-                            </ul>
-
-                        </div>
-                    </div>
-
-                    <div class="status m-t-1">
-
-                        <span class="p-a-05 bg-info text-xs-center"> {{github.user.public_repos}} Public Repos </span>
-                        <span class="p-a-05 bg-primary m-t-1 text-xs-center"> {{github.user.public_gists}} Public Gists </span>
-                        <span class="p-a-05 bg-danger m-t-1 text-xs-center"> {{github.user.followers}} Followers </span>
-                        <span class="p-a-05 bg-inverse m-t-1 text-xs-center"> {{github.user.following}} Followings </span>
-
-
-                    </div>
-
-                </div>
-            </div>
-
-
-
+<a class="hover" (click)="goSearch()"> Go To Search </a>
+<div *ngIf="user">
+   <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{user.name}}</h3>
         </div>
-
-    </div>
-    <div class="col-md-7">
-
-        <div *ngIf="github && github.user && (github.userName && github.userName.length > 0)">
-            <div class="card">
-                <h5 class="card-header">Repos</h5>
-                <div class="card-block">
-
-                    <div class="list-group">
-
-                        <a *ngFor="let repo of github.repos" href="{{repo.html_url}}" target="_blank" class="list-group-item list-group-item-action">
-                            <span class="tag tag-info pull-xs-right">{{repo.watchers}} Watchers</span>
-                            <span class="tag tag-success pull-xs-right m-r-05">{{repo.forks}} Forks</span>
-                            <h6 class="list-group-item-heading">{{repo.name}}</h6>
-                            <p class="list-group-item-text">{{repo.description}}</p>
-                        </a>
-
-
-                    </div>
-
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <img class="img-thumbnail" src="{{user.avatar_url}}">
+                    <a class="btn btn-default btn-block" target="_blank" href="{{user.html_url}}">View Profile</a>
                 </div>
+                <div class="col-md-8">
+                    <div class="stats">
+                        <span class="label label-default">{{user.public_repos}} Public Repos</span>
+                        <span class="label label-primary">{{user.public_gists}} Public Gists</span>
+                        <span class="label label-success">{{user.followers}} Followers</span>
+                        <span class="label label-info">{{user.following}} Following</span>
+                    </div>
+                    <br>
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Username: </strong>{{user.login}}</li>
+                        <li class="list-group-item"><strong>Location: </strong>{{user.location}}</li> 
+                        <li class="list-group-item"><strong>Email: </strong>{{user.email}}</li> 
+                        <li class="list-group-item"><strong>Blog: </strong>{{user.blog}}</li> 
+                        <li class="list-group-item"><strong>Member Since: </strong>{{user.created_at}}</li> 
+                    </ul>
+                </div>    
             </div>
         </div>
-
     </div>
-
-</div>
+    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">User Repos</h3>
+        </div>
+        <div class="panel-body">
+            <div *ngFor="let repo of repos">
+                  <div class="row">
+                    <div class="col-md-9">
+                        <h4><a target="_blank" href="{{repo.html_url}}">{{repo.name}}</a></h4> <a class="hover" (click)="readmeFun(repo.name)"> Readme </a>
+                        <p>{{repo.description}}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <span class="label label-default">{{repo.watchers}} Watchers</span>
+                        <span class="label label-primary">{{repo.forks}} Forks</span>
+                        <span class="label label-primary">{{repo.stargazers_count}} Stars</span>
+                    </div>  
+                  </div>
+                  <hr>
+            </div>
+        </div>
+    </div>
+</div> 
