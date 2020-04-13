@@ -1,44 +1,54 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
-import { Github } from '../github-class/github'
-
+import { Observable } from 'rxjs';
+import { from } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GithubRequestService {
 
-  github: Github;
+  private userName: string;
+  // private clientId: string = '<Client Id>';
+  // private clientSecret: string = '<Client Secret Key>';
+  private clientId: string = '922c8f6ccfa1661f8838da56c0a3d7208480ce60';
+  private clientSecret: string = 'd1c186c6373f96571c0bfcf76b84e4dc6fd0c15a';
 
-  constructor(private http:HttpClient) { 
-    this.github = new Github("","","");
+  constructor(private _http: HttpClient) { 
+    //console.log('Github Service Ready.');
+    this.userName = '';
+
   }
-
-  githubRequest(){
-    interface ApiResponse {
-      user: any;
-      repo: any;
-      userName: string;
+  getUser() {
+    if (this.userName) {
+        return this._http.get('http://api.github.com/users/' + this.userName
+            + '?client_id=' + this.clientId
+            + '&client_secret=' + this.clientSecret);
+            
+            
+      }
+  }
+    getRepo() {
+       if (this.userName) {
+          return this._http.get('http://api.github.com/users/' + this.userName
+               + '/repos?client_id=' + this.clientId
+               + '&client_secret=' + this.clientSecret);
+          }
+      
     }
-    let promise = new Promise ((resolve,reject)=>{
-    this.http.get<ApiResponse>(environment.apiUrl).toPromise().then(response=>{
-      this. github.user = response.user
-      this.github.repo = response.repo
-      this.github.userName = response.userName
+    updateUser(userName: string) {
+      this.userName = userName;
+    }
+    private handleError(error: any) {
 
-
-    resolve()
-    },
-    error=>{
-      this.github.user = "user name example rmautia"
-      this.github.repo = "rmautia/pollapp"
-      this.github.userName = "sample username"
-
-      reject(error)
-    })
-  })
-  return promise
+      if (error.status === 401) {
+          return Observable.throw(error.status);
+      } else {
+          return Observable.throw(error.status || 'Server error');
+      }
   }
 }
+  
+

@@ -12,7 +12,10 @@ import { LandingComponent } from './landing/landing.component';
 import { HomeFormComponent } from './home-form/home-form.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProfileComponent } from './profile/profile.component';
+
+//services
 import { GitService } from './git-service/git.service';
+import { GithubRequestService } from './github-http/github-request.service';
 
 
 
@@ -34,7 +37,7 @@ import { GitService } from './git-service/git.service';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [GitService],
+  providers: [GitService, GithubRequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
