@@ -7,6 +7,7 @@ import { error } from '@angular/compiler/src/util';
 
 
 @Component({
+  moduleId : module.id,
   selector: 'app-home-form',
   templateUrl: './home-form.component.html',
   styleUrls: ['./home-form.component.css']
