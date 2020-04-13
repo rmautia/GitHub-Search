@@ -11,6 +11,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LandingComponent } from './landing/landing.component';
 import { HomeFormComponent } from './home-form/home-form.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ProfileComponent } from './profile/profile.component';
+import { GitService } from './git-service/git.service';
 
 
 
@@ -22,7 +24,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     NavbarComponent,
     LandingComponent,
     HomeFormComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProfileComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [GitService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

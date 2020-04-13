@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
+import { Observable } from 'rxjs';
+import { from } from 'rxjs';
+
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +30,7 @@ export class GitService {
             + '?client_id=' + this.clientId
             + '&client_secret=' + this.clientSecret);
             
+            
       }
   }
     getRepo() {
@@ -38,6 +44,14 @@ export class GitService {
     updateUser(userName: string) {
       this.userName = userName;
     }
+    private handleError(error: any) {
+
+      if (error.status === 401) {
+          return Observable.throw(error.status);
+      } else {
+          return Observable.throw(error.status || 'Server error');
+      }
+  }
 }
   
 
