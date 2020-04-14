@@ -20,6 +20,7 @@ import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
 import { GithubRequestService } from './github-http/github-request.service';
 import { ReadmeComponent } from './readme/readme.component';
 import { HighlightDirective } from './highlight.directive';
+import { RelativeTimePipe } from './relative-time.pipe';
 
 
 
@@ -35,6 +36,7 @@ import { HighlightDirective } from './highlight.directive';
     ProfileComponent,
     ReadmeComponent,
     HighlightDirective,
+    RelativeTimePipe,
 
   ],
   imports: [
