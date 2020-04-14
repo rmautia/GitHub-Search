@@ -38,8 +38,6 @@ export class ProfileComponent implements OnInit {
   goSearch() {
     this.router.navigate(['/home-form'])
   }
-  readmeFun(name: string) {
-    this.router.navigate(['/readme'], { queryParams: { repoName: name, userName: this.userName} });
-  }
+  
 
 }

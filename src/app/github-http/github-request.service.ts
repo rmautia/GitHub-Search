@@ -62,6 +62,13 @@ export class GithubRequestService {
     updateUser(userName: string) {
       this.userName = userName;
     }
+    updateRepo(getRepoUrl: string){
+      this.getRepoUrl = getRepoUrl;
+    }
+    updateReadme(getReadmeUrl: string) {
+      this.getReadmeUrl = getReadmeUrl;
+    }
+
     private handleError(error: any) {
 
       if (error.status === 401) {

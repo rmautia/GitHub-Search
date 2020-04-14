@@ -18,6 +18,10 @@ export class HomeFormComponent implements OnInit {
     this._githubRequestService.updateUser(this.userName);
     this.router.navigate(['/profile'], {queryParams: {userName: this.userName}});
     }
+  searchRepo() {
+    this._githubRequestService.updateRepo(this.userName);
+    this.router.navigate(['/profile'], {queryParams: {updateRepo: this.userName}})
+  }
   ngOnInit() {    
   }
 

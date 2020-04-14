@@ -24,6 +24,7 @@ import { RelativeTimePipe } from './relative-time.pipe';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +38,7 @@ import { RelativeTimePipe } from './relative-time.pipe';
     ReadmeComponent,
     HighlightDirective,
     RelativeTimePipe,
+    
 
   ],
   imports: [
